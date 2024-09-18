@@ -1,0 +1,327 @@
+/* Общие стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1300px;
+    width: 100%;
+    background-color: var(--container-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* Для управления позиционированием .file-options */
+    margin-top: -210px; /* Отступ сверху для поднятия контейнера */
+}
+
+h1 {
+    text-align: left;
+    color: var(--text-primary);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Контейнер для таблицы с прокруткой */
+.table-wrapper {
+    max-height: 535px; /* Высота контейнера с прокруткой */
+    overflow-y: auto; /* Вертикальная прокрутка */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: white;
+}
+
+/* Альтернативные цвета строк */
+tr:nth-child(even) {
+    background-color: var(--row-even-bg);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--row-odd-bg);
+}
+
+/* Подсветка строки при наведении курсора */
+tr:hover {
+    background-color: var(--row-hover-bg);
+}
+
+td input, td select, .file-options input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+}
+
+/* Стиль кнопок в таблице */
+td button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+td button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.button-group {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.button-group button {
+    background-color: var(--button-group);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 4px;
+}
+
+.button-group button:hover {
+    background-color: var(--button-hover-group);
+}
+
+.button-group .clear-form {
+    background-color: var(--clear-form-bg);
+}
+
+.button-group .clear-form:hover {
+    background-color: var(--clear-form-hover-bg);
+}
+
+.button-group .remove-all {
+    background-color: var(--remove-all-bg);
+}
+
+.button-group .remove-all:hover {
+    background-color: var(--remove-all-hover-bg);
+}
+
+.file-options {
+    padding: 15px;
+    background-color: var(--container-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 350px;
+    text-align: center; /* Выравнивание содержимого по центру */
+    position: absolute; /* Абсолютное позиционирование для отделения */
+    top: 100%; /* Положение относительно контейнера */
+    left: 50%;
+    transform: translateX(-50%); /* Центрирование относительно родителя */
+}
+
+.file-options label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--file-options-text); /* Цвет текста */
+}
+
+.file-options input[type="text"] {
+    width: calc(100% - 20px); /* Уменьшение ширины для учета padding */
+    margin: 0 auto; /* Центрирование элемента */
+    padding: 8px;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block; /* Важный момент для центрирования */
+    margin-bottom: 5px; /* Добавлен отступ снизу */
+}
+
+.file-options .submit-btn {
+    background-color: var(--submit-btn-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.file-options .submit-btn:hover {
+    background-color: var(--submit-btn-hover-bg);
+}
+
+.note {
+    font-size: 0.9em;
+    color: var(--note-color);
+    margin-top: 15px; /* Увеличен отступ сверху */
+}
+
+.note span {
+    font-weight: bold;
+}
+
+.row-number {
+    background-color: var(--row-number-bg);
+    font-weight: bold;
+    color: var(--row-number-text);
+}
+
+/* Стили для переключателя темы */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.theme-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.theme-toggle i {
+    font-size: 20px;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+
+.theme-toggle label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 25px;
+    background-color: var(--toggle-bg);
+    border-radius: 15px;
+    position: relative;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle label::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 19px;
+    height: 19px;
+    background-color: var(--toggle-thumb-bg);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: var(--toggle-bg-dark);
+}
+
+input[type="checkbox"]:checked + label::before {
+    transform: translateX(25px);
+}
+
+/* Стили для отображения версии */
+.version {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: var(--version-text); /* Цвет текста версии */
+    background: var(--version-bg); /* Цвет фона версии */
+    padding: 5px 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+
+/* Цвета для светлой и тёмной темы */
+:root {
+    --background-color: #F3F6FD;
+    --container-bg: #FFFFFF;
+    --text-primary: #333333;
+    --border-color: #ddd;
+    --table-header-bg: #6A6A6A;
+    --input-border: #ccc;
+    --button-bg: #ff4c4c; /* Цвет кнопок в таблице для светлого режима */
+    --button-text: #FFFFFF;
+    --button-hover-bg: #e43a3a; /* Цвет кнопки при наведении для светлого режима */
+    --button-group: #4CAF50; /* Цвет кнопок в таблице для светлого режима */
+    --button-hover-group: #45a049; /* Цвет кнопки при наведении для светлого режима */
+    --clear-form-bg: #ff9800;
+    --clear-form-hover-bg: #f57c00;
+    --remove-all-bg: #ff5722;
+    --remove-all-hover-bg: #e64a19;
+    --submit-btn-bg: #2196F3;
+    --submit-btn-hover-bg: #1976D2;
+    --note-color: #555;
+    --row-number-bg: #f0f0f0;
+    --row-number-text: #333;
+    --input-bg: #fff;
+    --input-text: #333;
+    --toggle-bg: #DDDDDD;
+    --toggle-thumb-bg: #FFFFFF;
+    --toggle-bg-dark: #444444;
+    --toggle-thumb-bg-dark: #333333;
+    --file-options-text: #333; /* Цвет текста в file-options для светлой темы */
+    --row-even-bg: #fafafa; /* Фон четных строк для светлого режима */
+    --row-odd-bg: #ffffff; /* Фон нечетных строк для светлого режима */
+    --row-hover-bg: #e0e0e0; /* Подсветка строки при наведении курсора для светлого режима */
+    --version-text: #999999;
+    --version-bg: rgba(255, 255, 255, 0.8);
+}
+
+body.dark-mode {
+    --background-color: #111827;
+    --container-bg: #1F2937;
+    --text-primary: #FFFFFF;
+    --border-color: #333;
+    --table-header-bg: #444444;
+    --input-border: #555;
+    --button-bg: #ff4c4c; /* Цвет кнопок в таблице для тёмного режима */
+    --button-text: #FFFFFF;
+    --button-hover-bg: #e43a3a; /* Цвет кнопки при наведении для тёмного режима */
+    --button-group: #4CAF50; /* Цвет кнопок в таблице для светлого режима */
+    --button-hover-group: #45a049; /* Цвет кнопки при наведении для светлого режима */
+    --clear-form-bg: #e07b00; /* Уменьшенная яркость кнопки в тёмном режиме */
+    --clear-form-hover-bg: #c76c00; /* Уменьшенная яркость кнопки при наведении в тёмном режиме */
+    --remove-all-bg: #e64a19; /* Уменьшенная яркость кнопки в тёмном режиме */
+    --remove-all-hover-bg: #d43f17; /* Уменьшенная яркость кнопки при наведении в тёмном режиме */
+    --submit-btn-bg: #1976D2; /* Уменьшенная яркость кнопки в тёмном режиме */
+    --submit-btn-hover-bg: #155fa0; /* Уменьшенная яркость кнопки при наведении в тёмном режиме */
+    --note-color: #bbb;
+    --row-number-bg: #333;
+    --row-number-text: #fff;
+    --input-bg: #333;
+    --input-text: #fff;
+    --file-options-text: #bbb; /* Цвет текста в file-options для тёмной темы */
+    --row-even-bg: #2a2a2a; /* Фон четных строк для темного режима */
+    --row-odd-bg: #1F2937; /* Фон нечетных строк для темного режима */
+    --row-hover-bg: #3c4f5c; /* Подсветка строки при наведении курсора для темного режима */
+    --version-text: #666666;
+    --version-bg: rgba(0, 0, 0, 0.8);
+}
