@@ -258,6 +258,71 @@ input[type="checkbox"]:checked + label::before {
     z-index: 1000;
 }
 
+/* Стили для модального окна */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    z-index: 1001; /* Поверх всех остальных элементов */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Содержимое модального окна */
+.modal-content {
+    background-color: var(--container-bg); /* Фон, соответствующий дизайну */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 300px; /* Уменьшенная ширина */
+    max-width: 90%; /* Максимальная ширина */
+    text-align: center;
+}
+
+/* Стили для текста модального окна */
+.modal-content p {
+    margin-bottom: 20px;
+    color: var(--modal-text-color); /* Цвет текста */
+}
+
+/* Стили для кнопок внутри модального окна */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.confirm-clear-btn,
+.cancel-clear-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.confirm-clear-btn {
+    background-color: var(--reset-btn-bg); /* Цвет кнопки подтверждения */
+    color: var(--reset-btn-text);
+}
+
+.cancel-clear-btn {
+    background-color: var(--cancel-btn-bg); /* Цвет кнопки отмены */
+    color: var(--cancel-btn-text);
+}
+
+.confirm-clear-btn:hover {
+    background-color: var(--reset-btn-hover-bg);
+}
+
+.cancel-clear-btn:hover {
+    background-color: var(--cancel-btn-hover-bg);
+}
+
 
 /* Цвета для светлой и тёмной темы */
 :root {
@@ -293,6 +358,13 @@ input[type="checkbox"]:checked + label::before {
     --row-hover-bg: #e0e0e0; /* Подсветка строки при наведении курсора для светлого режима */
     --version-text: #999999;
     --version-bg: rgba(255, 255, 255, 0.8);
+    --modal-text-color: #333333;
+    --reset-btn-bg: #FF6F61; /* Цвет фона кнопки сбросить */
+    --reset-btn-text: #FFFFFF; /* Цвет текста кнопки сбросить */
+    --reset-btn-hover-bg: #FF3D2E; /* Цвет фона кнопки сбросить при наведении */
+    --cancel-btn-bg: #666666;
+    --cancel-btn-hover-bg: #333333;
+    --cancel-btn-text: #FFFFFF; 
 }
 
 body.dark-mode {
@@ -324,4 +396,11 @@ body.dark-mode {
     --row-hover-bg: #3c4f5c; /* Подсветка строки при наведении курсора для темного режима */
     --version-text: #666666;
     --version-bg: rgba(0, 0, 0, 0.8);
+    --modal-text-color: #FFFFFF;
+    --reset-btn-bg: #FF6F61; /* Цвет фона кнопки сбросить */
+    --reset-btn-text: #FFFFFF; /* Цвет текста кнопки сбросить */
+    --reset-btn-hover-bg: #FF3D2E; /* Цвет фона кнопки сбросить при наведении */
+    --cancel-btn-bg: #666666;
+    --cancel-btn-hover-bg: #333333;
+    --cancel-btn-text: #FFFFFF; 
 }

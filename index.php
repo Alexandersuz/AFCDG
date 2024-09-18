@@ -13,10 +13,9 @@
     <div class="container">
         <h1>Помощник в заполнении файла смены габаритки в Uzum Market</h1>
 
-        <div class="theme-toggle">
-            <!-- Переключатель темы -->
+        <div class="theme-toggle" aria-label="Переключатель темы">
             <i class="fa fa-sun" aria-hidden="true"></i>
-            <input type="checkbox" id="theme-switcher">
+            <input type="checkbox" id="theme-switcher" aria-label="Переключение на тёмную/светлую тему">
             <label for="theme-switcher"></label>
             <i class="fa fa-moon" aria-hidden="true"></i>
         </div>
@@ -57,8 +56,8 @@
 
             <div class="button-group">
                 <button type="button" onclick="addRow()">Добавить строку</button>
-                <button type="button" class="clear-form" onclick="clearForm()">Очистить форму</button>
-                <button type="button" class="remove-all" onclick="removeAllRows()">Удалить все строки</button>
+                <button type="button" class="clear-form" onclick="showModal('clear-form')">Очистить форму</button>
+                <button type="button" class="remove-all" onclick="showModal('remove-all')">Удалить все строки</button>
             </div>
 
             <div class="file-options">
@@ -71,8 +70,19 @@
         </form>
     </div>
     
-<!-- Вывод версии -->
-<div class="version">Версия: <span id="version-number"></span></div>
+    <!-- Модальное окно для подтверждения -->
+    <div id="modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <p id="modal-text">Вы уверены, что хотите очистить форму?</p>
+            <div class="modal-buttons">
+                <button id="confirm-btn" class="confirm-clear-btn" onclick="confirmAction()">Подтвердить</button>
+                <button class="cancel-clear-btn" onclick="closeModal()">Отменить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вывод версии -->
+    <div class="version">Версия: <span id="version-number"></span></div>
 
 </body>
 </html>

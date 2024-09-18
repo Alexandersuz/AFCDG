@@ -1,5 +1,5 @@
 // Задайте актуальную версию проекта
-const CURRENT_VERSION = '0.0.06'; 
+const CURRENT_VERSION = '0.0.07'; 
 
 // Обновление версии на странице после загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
@@ -80,4 +80,36 @@ function removeAllRows() {
 // Функция валидации ввода чисел
 function validateNumber(input) {
     input.value = input.value.replace(/[^0-9]/g, ''); // Удаляем все нечисловые символы
+}
+
+
+let currentAction = null;
+
+// Показ модального окна
+function showModal(action) {
+    currentAction = action;
+    document.getElementById('modal').style.display = 'flex';
+
+    const modalText = document.getElementById('modal-text');
+    if (action === 'clear-form') {
+        modalText.textContent = 'Вы уверены, что хотите очистить форму?';
+    } else if (action === 'remove-all') {
+        modalText.textContent = 'Вы уверены, что хотите удалить все строки?';
+    }
+}
+
+// Закрытие модального окна
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+    currentAction = null;
+}
+
+// Подтверждение действия
+function confirmAction() {
+    if (currentAction === 'clear-form') {
+        clearForm();
+    } else if (currentAction === 'remove-all') {
+        removeAllRows();
+    }
+    closeModal();
 }
