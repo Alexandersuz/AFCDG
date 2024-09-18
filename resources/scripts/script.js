@@ -1,5 +1,5 @@
 // Задайте актуальную версию проекта
-const CURRENT_VERSION = '0.0.05'; 
+const CURRENT_VERSION = '0.0.06'; 
 
 // Обновление версии на странице после загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
